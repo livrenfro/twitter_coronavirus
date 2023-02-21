@@ -36,11 +36,14 @@ if os.environ.get('DISPLAY','') == '':
     print('no display found. Using non-interactive Agg backend')
     mpl.use('Agg')
 import matplotlib.pyplot as plt
+import numpy as np
 
+items.sort(key=lambda x: x[1], reverse=True) 
 k = list(zip(*items))[0]
 v = list(zip(*items))[1]
+x_pos = np.arange(len(k)) 
 
-plt.bar(k,v, data=items)
+plt.bar(x_pos[0:10],v[0:10], data=items)
 argument = args.input_path
 key = args.key[1:]
 name = "{}.{}_graph.png".format(argument,key)
