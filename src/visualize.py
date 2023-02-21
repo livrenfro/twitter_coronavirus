@@ -24,5 +24,24 @@ if args.percent:
 
 # print the count values
 items = sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), reverse=True)
+print(items)
+print(type(items))
+print(type(items[1]))
+
 for k,v in items:
     print(k,':',v)
+
+import matplotlib as mpl
+if os.environ.get('DISPLAY','') == '':
+    print('no display found. Using non-interactive Agg backend')
+    mpl.use('Agg')
+import matplotlib.pyplot as plt
+
+k = list(zip(*items))[0]
+v = list(zip(*items))[1]
+
+plt.bar(k,v, data=items)
+argument = args.input_path
+key = args.key[1:]
+name = "{}.{}_graph.png".format(argument,key)
+plt.savefig(name)
