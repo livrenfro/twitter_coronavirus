@@ -44,7 +44,9 @@ v = list(zip(*items))[1]
 x_pos = np.arange(len(k)) 
 
 plt.bar(x_pos[0:10],v[0:10], data=items)
+plt.ylabel('Number of Tweets')
 argument = args.input_path
+plt.xlabel("{}".format(argument))
 key = args.key[1:]
 name = "{}.{}_graph.png".format(argument,key)
 plt.savefig(name)
