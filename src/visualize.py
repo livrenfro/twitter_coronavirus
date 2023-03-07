@@ -45,17 +45,20 @@ for k,v in items:
 # sorting, taking top ten, storing in variables
 #items = sorted(sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), reverse=True)[:10], key=lambda x: x[1])
 
+topten = sorted(sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), reverse=True)[:10], key=lambda x: x[1])
+print("Top 10=", topten)
+
 x = []
 y = []
-for k, v in items:
+for k, v in topten:
     x.append(k)
     y.append(v)
-df = pd.DataFrame(items, columns=['x', 'y'])
-df = df.sort_values("y")
+#df = pd.DataFrame(items, columns=['x', 'y'])
+#df = df.sort_values("y")
 #k = list(zip(*items))[0]
 #v = list(zip(*items))[1]
 
-plt.bar(x,y,data = df, color='olive')
+plt.bar(x,y, color='olive')
 plt.ylabel('Number of Tweets')
 argument = args.key[1:]
 plt.xlabel("Hashtag: " + ("{}".format(argument)).replace("_", " ").title())
