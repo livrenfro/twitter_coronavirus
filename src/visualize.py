@@ -55,13 +55,14 @@ for k, v in topten:
     y.append(v)
 print(x)
 print(y)
+xs, ys = zip(*sorted(zip(x, y)))
 
 #df = pd.DataFrame(items, columns=['x', 'y'])
 #df = df.sort_values("y")
 #k = list(zip(*items))[0]
 #v = list(zip(*items))[1]
 
-plt.bar(x,y, color='olive')
+plt.bar(xs,ys, color='olive')
 plt.ylabel('Number of Tweets')
 argument = args.key[1:]
 plt.xlabel("Hashtag: " + ("{}".format(argument)).replace("_", " ").title())
@@ -77,5 +78,5 @@ else:
     plt.title("Hashtage Usage: " + args.key)
 
 key = args.input_path
-name = "{}.{}.pls".format(key, argument)
+name = "{}.{}.help".format(key, argument)
 plt.savefig("plots/" + name + ".png")
