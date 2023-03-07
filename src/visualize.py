@@ -41,8 +41,7 @@ for k,v in items:
   #  mpl.use('Agg')
 
 # sorting, taking top ten, storing in variables
-items = sorted(items, key=lambda x:x[1], reverse = True)[:10]
-items = dict(items)
+items = sorted(sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), reverse=True)[:10], key=lambda x: x[1])
 k = list(zip(*items))[0]
 v = list(zip(*items))[1]
 
@@ -52,5 +51,5 @@ argument = args.key[1:]
 plt.xlabel("Hashtag: " + ("{}".format(argument)).replace("_", " ").title())
 
 key = args.input_path
-name = "{}.{}".format(key, argument)
+name = "{}_{}".format(key, argument)
 plt.savefig("plots/" + name + ".png")
