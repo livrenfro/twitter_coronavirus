@@ -59,7 +59,8 @@ plt.xlabel("Hashtag: " + ("{}".format(argument)).replace("_", " ").title())
 
 if args.key == "#코로나바이러스": 
     language = "Korean"
-else languge = "English"
+else:
+    language = "English"
 
 if language == "Korean":
     plt.title("Hashtage Usage: " + args.key, fontproperties='/home/Olivia.Renfro.23/twitter_coronavirus/NotoSerifKR-Light.otf')
