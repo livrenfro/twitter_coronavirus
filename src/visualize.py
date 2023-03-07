@@ -57,6 +57,15 @@ plt.ylabel('Number of Tweets')
 argument = args.key[1:]
 plt.xlabel("Hashtag: " + ("{}".format(argument)).replace("_", " ").title())
 
+if args.key == "#코로나바이러스": 
+    language = "Korean"
+else languge = "English"
+
+if language == "Korean":
+    plt.title("Hashtage Usage: " + args.key, fontproperties='/home/Olivia.Renfro.23/twitter_coronavirus/NotoSerifKR-Light.otf')
+else:
+    plt.title("Hashtage Usage: " + args.key)
+
 key = args.input_path
 name = "{}_{}".format(key, argument)
 plt.savefig("plots/" + name + ".png")
