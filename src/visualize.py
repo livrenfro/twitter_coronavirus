@@ -79,5 +79,5 @@ else:
     plt.title("Hashtage Usage: " + args.key)
 
 key = args.input_path
-name = "{}.{}.testt".format(key, argument)
+name = "{}.{}.test".format(key, argument)
 plt.savefig("plots/" + name + ".png")
