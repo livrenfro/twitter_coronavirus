@@ -17,6 +17,8 @@ mpl.use('Agg')
 import matplotlib.pyplot as plt 
 from matplotlib.font_manager import FontProperties
 import numpy as np
+import pandas as pd
+
 
 # open the input path
 with open(args.input_path) as f:
@@ -48,11 +50,12 @@ y = []
 for k, v in items:
     x.append(k)
     y.append(v)
-
+df = pd.DataFrame(items, columns=['x', 'y'])
+df = df.sort_values("y")
 #k = list(zip(*items))[0]
 #v = list(zip(*items))[1]
 
-plt.bar(x,y, color='olive')
+plt.bar(x,y,data = df, color='olive')
 plt.ylabel('Number of Tweets')
 argument = args.key[1:]
 plt.xlabel("Hashtag: " + ("{}".format(argument)).replace("_", " ").title())
