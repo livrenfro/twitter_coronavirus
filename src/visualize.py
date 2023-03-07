@@ -74,10 +74,10 @@ else:
     language = "English"
 
 if language == "Korean":
-    plt.title("Hashtage Usage: " + args.key, fontproperties='/home/Olivia.Renfro.23/twitter_coronavirus/NotoSerifKR-Light.otf')
+    plt.title("Hashtag Usage: " + args.key, fontproperties='/home/Olivia.Renfro.23/twitter_coronavirus/NotoSansKRLight.otf')
 else:
-    plt.title("Hashtage Usage: " + args.key)
+    plt.title("Hashtag Usage: " + args.key)
 
 key = args.input_path
-name = "{}.{}.test".format(key, argument)
+name = "{}_{}".format(key, argument)
 plt.savefig("plots/" + name + ".png")
