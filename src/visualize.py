@@ -19,6 +19,13 @@ from matplotlib.font_manager import FontProperties
 import numpy as np
 import pandas as pd
 
+#font stuff
+properties = []
+properties.append(FontProperties(fname='/home/Olivia.Renfro.23/twitter_coronavirus/NotoSerifKR-Light.otf'))
+print(properties)
+#font_dir = ['/home/Olivia.Renfro.23/twitter_coronavirus/NotoSerifKR-Light.otf']
+#font_manager.fontManager.addfont('/home/Olivia.Renfro.23/twitter_coronavirus/NotoSerifKR-Light.otf')
+
 
 # open the input path
 with open(args.input_path) as f:
@@ -68,13 +75,13 @@ plt.ylabel('Number of Tweets')
 argument = args.key[1:]
 plt.xlabel("Hashtag: " + ("{}".format(argument)).replace("_", " ").title())
 
-if args.key == "#코로나바이러스": 
+if "코로나바이러스" in args.key: 
     language = "Korean"
 else:
     language = "English"
 
 if language == "Korean":
-    plt.title("Hashtag Usage: " + args.key, fontproperties='/home/Olivia.Renfro.23/twitter_coronavirus/NotoSansKRLight.otf')
+    plt.title("Hashtag Usage: " + args.key, fontproperties=properties[0])
 else:
     plt.title("Hashtag Usage: " + args.key)
 
