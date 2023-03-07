@@ -53,6 +53,9 @@ y = []
 for k, v in topten:
     x.append(k)
     y.append(v)
+print(x)
+print(y)
+
 #df = pd.DataFrame(items, columns=['x', 'y'])
 #df = df.sort_values("y")
 #k = list(zip(*items))[0]
@@ -74,5 +77,5 @@ else:
     plt.title("Hashtage Usage: " + args.key)
 
 key = args.input_path
-name = "{}_{}".format(key, argument)
+name = "{}.{}.pls".format(key, argument)
 plt.savefig("plots/" + name + ".png")
