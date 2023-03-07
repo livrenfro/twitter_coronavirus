@@ -12,6 +12,11 @@ args = parser.parse_args()
 import os
 import json
 from collections import Counter,defaultdict
+import matplotlib as mpl
+mpl.use('Agg')
+import matplotlib.pyplot as plt 
+from matplotlib.font_manager import FontProperties
+import numpy as np
 
 # open the input path
 with open(args.input_path) as f:
@@ -31,22 +36,20 @@ print(type(items[1]))
 for k,v in items:
     print(k,':',v)
 
-import matplotlib as mpl
-if os.environ.get('DISPLAY','') == '':
-    print('no display found. Using non-interactive Agg backend')
-    mpl.use('Agg')
-import matplotlib.pyplot as plt
-import numpy as np
+#if os.environ.get('DISPLAY','') == '':
+ #   print('no display found. Using non-interactive Agg backend')
+  #  mpl.use('Agg')
 
-items.sort(key=lambda x: x[1], reverse=True) 
+# sorting, taking top ten, storing in variables
+items = sorted(sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), reverse=True)[:10], key=lambda s: s[1]) 
 k = list(zip(*items))[0]
 v = list(zip(*items))[1]
-x_pos = np.arange(len(k)) 
 
-plt.bar(x_pos[0:10],v[0:10], data=items)
+plt.bar(k,v, color='olive')
 plt.ylabel('Number of Tweets')
-argument = args.input_path
-plt.xlabel("{}".format(argument))
-key = args.key[1:]
-name = "{}.{}_graph.png".format(argument,key)
-plt.savefig(name)
+argument = args.key[1:]
+plt.xlabel("Hashtag: " + ("{}".format(argument)).replace("_", " ").title())
+
+key = args.input_path
+name = "{}.{}_graph".format(key, argument)
+plt.savefig("plots/" + name + ".png")
