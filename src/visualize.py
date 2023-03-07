@@ -42,10 +42,17 @@ for k,v in items:
 
 # sorting, taking top ten, storing in variables
 items = sorted(sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), reverse=True)[:10], key=lambda x: x[1])
-k = list(zip(*items))[0]
-v = list(zip(*items))[1]
 
-plt.bar(k,v, color='olive')
+x = []
+y = []
+for k, v in items:
+    x.append(k)
+    y.append(v)
+
+#k = list(zip(*items))[0]
+#v = list(zip(*items))[1]
+
+plt.bar(x,y, color='olive')
 plt.ylabel('Number of Tweets')
 argument = args.key[1:]
 plt.xlabel("Hashtag: " + ("{}".format(argument)).replace("_", " ").title())
