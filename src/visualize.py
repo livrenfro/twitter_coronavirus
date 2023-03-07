@@ -73,7 +73,8 @@ x = pd.Categorical(x, categories = x , ordered = True)
 plt.bar(x,y, color='olive')
 plt.ylabel('Number of Tweets')
 argument = args.key[1:]
-plt.xlabel("Hashtag: " + ("{}".format(argument)).replace("_", " ").title())
+key = args.input_path
+plt.xlabel(("{}".format(args.key)).replace("reduced.", " ").title())
 
 if "코로나바이러스" in args.key: 
     language = "Korean"
@@ -85,6 +86,5 @@ if language == "Korean":
 else:
     plt.title("Hashtag Usage: " + args.key)
 
-key = args.input_path
 name = "{}_{}".format(key, argument)
 plt.savefig("plots/" + name + ".png")
