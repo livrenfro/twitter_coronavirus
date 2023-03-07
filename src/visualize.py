@@ -51,5 +51,5 @@ argument = args.key[1:]
 plt.xlabel("Hashtag: " + ("{}".format(argument)).replace("_", " ").title())
 
 key = args.input_path
-name = "{}.{}_graph".format(key, argument)
+name = "{}_{}".format(key, argument)
 plt.savefig("plots/" + name + ".png")
