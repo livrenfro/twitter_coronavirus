@@ -28,7 +28,7 @@ if args.percent:
         counts[args.key][k] /= counts['_all'][k]
 
 # print the count values
-items = sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), reverse=True)
+items = sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), reverse=False)
 print(items)
 print(type(items))
 print(type(items[1]))
@@ -41,7 +41,7 @@ for k,v in items:
   #  mpl.use('Agg')
 
 # sorting, taking top ten, storing in variables
-items = sorted(sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), reverse=True)[:10], key=lambda s: s[1]) 
+items = items[:10]
 k = list(zip(*items))[0]
 v = list(zip(*items))[1]
 
