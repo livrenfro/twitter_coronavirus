@@ -74,7 +74,7 @@ plt.bar(x,y, color='olive')
 plt.ylabel('Number of Tweets')
 argument = args.key[1:]
 key = args.input_path
-plt.xlabel(("{}".format(args.key)).replace("reduced.", " ").title())
+plt.xlabel(("{}".format(args.input_path)).replace("reduced.", " ").title())
 
 if "코로나바이러스" in args.key: 
     language = "Korean"
@@ -86,5 +86,5 @@ if language == "Korean":
 else:
     plt.title("Hashtag Usage: " + args.key)
 
-name = "{}_{}".format(key, argument)
+name = "{}_{}_final".format(key, argument)
 plt.savefig("plots/" + name + ".png")
