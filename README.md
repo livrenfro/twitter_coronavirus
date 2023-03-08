@@ -10,10 +10,10 @@ This project was divided into three main components:
 
 The outputs from the MapReduce exercise are as follows:
 
-<img src=plots/reduced.country_coronavirus_final.png width=100% />
+<img src=plots/reduced.country_coronavirus_foo.png width=100% />
 
-<img src=plots/reduced.lang_coronavirus_final.png width=100% />
+<img src=plots/reduced.lang_coronavirus_foo.png width=100% />
 
-<img src=plots/reduced.country_코로나바이러스_final.png width=100% />
+<img src=plots/reduced.country_코로나바이러스_foo.png width=100% />
 
-<img src=plots/reduced.lang_코로나바이러스_final.png width=100% />
+<img src=plots/reduced.lang_코로나바이러스_foo.png width=100% />
