@@ -86,5 +86,5 @@ if language == "Korean":
 else:
     plt.title("Hashtag Usage: " + args.key)
 
-name = "{}_{}_final".format(key, argument)
+name = "{}_{}".format(key, argument)
 plt.savefig("plots/" + name + ".png")
